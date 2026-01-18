@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: Photo Blog
+---
+
+<div class="photos-page">
+  <header class="page-header">
+    <h1>Photo Blog</h1>
+    <p>Visual stories and moments captured</p>
+  </header>
+
+  <div class="photos-grid">
+    {% for photo in collections.photos %}
+    <article class="photo-item">
+      <a href="{{ photo.url }}">
+        <div class="photo-wrapper">
+          <img src="/photos/{{ photo.data.thumbnail or photo.data.image }}"
+               alt="{{ photo.data.alt or photo.data.title or 'Photo' }}"
+               loading="lazy">
+        </div>
+        <div class="photo-info">
+          {% if photo.data.title %}
+          <h2>{{ photo.data.title }}</h2>
+          {% endif %}
+          <time datetime="{{ photo.date | htmlDateString }}">{{ photo.date | readableDate }}</time>
+          {% if photo.data.location %}
+          <p class="location">📍 {{ photo.data.location }}</p>
+          {% endif %}
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</div>

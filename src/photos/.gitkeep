@@ -1,0 +1,7 @@
+# Photo Directory
+
+Place your photos here. For each photo, you should have:
+- A full-size version (e.g., photo.jpg)
+- A thumbnail version (e.g., photo-thumb.jpg)
+
+See IMAGE_OPTIMIZATION.md in the root directory for instructions on creating optimized images.

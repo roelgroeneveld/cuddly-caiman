@@ -1,0 +1,48 @@
+---
+layout: base.njk
+title: Home
+---
+
+<div class="home">
+  <section class="hero">
+    <h1>Welcome to My Blog & Photo Site</h1>
+    <p>Thoughts, notes, and photographs</p>
+  </section>
+
+  <section class="recent-posts">
+    <h2>Recent Blog Posts</h2>
+    <div class="post-list">
+      {% for post in collections.allBlogPosts | limit(5) %}
+      <article class="post-preview">
+        {% if post.data.title %}
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        {% endif %}
+        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <div class="excerpt">
+          {{ post.templateContent | safe | truncate(150) }}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <a href="/blog/" class="view-all">View all posts →</a>
+  </section>
+
+  <section class="recent-photos">
+    <h2>Recent Photos</h2>
+    <div class="photo-grid">
+      {% for photo in collections.photos | limit(6) %}
+      <article class="photo-preview">
+        <a href="{{ photo.url }}">
+          <img src="/photos/{{ photo.data.thumbnail or photo.data.image }}"
+               alt="{{ photo.data.alt or photo.data.title or 'Photo' }}"
+               loading="lazy">
+          {% if photo.data.title %}
+          <p>{{ photo.data.title }}</p>
+          {% endif %}
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+    <a href="/photos/" class="view-all">View all photos →</a>
+  </section>
+</div>

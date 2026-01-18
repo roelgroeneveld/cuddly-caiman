@@ -1,0 +1,57 @@
+---
+layout: base.njk
+isPhotoPost: true
+---
+
+<article class="photo-post">
+  <header class="photo-header">
+    {% if title %}
+    <h1>{{ title }}</h1>
+    {% endif %}
+    <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    {% if location %}
+    <p class="location">📍 {{ location }}</p>
+    {% endif %}
+  </header>
+
+  <div id="photo-gallery" class="photo-gallery">
+    {% if image %}
+    <a href="/photos/{{ image }}"
+       data-pswp-width="{{ imageWidth or 1920 }}"
+       data-pswp-height="{{ imageHeight or 1280 }}"
+       target="_blank">
+      <img src="/photos/{{ thumbnail or image }}" alt="{{ alt or title or 'Photo' }}" loading="lazy">
+    </a>
+    {% endif %}
+  </div>
+
+  {% if content %}
+  <div class="photo-description">
+    {{ content | safe }}
+  </div>
+  {% endif %}
+
+  {% if camera or lens or settings %}
+  <aside class="photo-metadata">
+    <h3>Photo Details</h3>
+    <dl>
+      {% if camera %}
+      <dt>Camera:</dt>
+      <dd>{{ camera }}</dd>
+      {% endif %}
+      {% if lens %}
+      <dt>Lens:</dt>
+      <dd>{{ lens }}</dd>
+      {% endif %}
+      {% if settings %}
+      <dt>Settings:</dt>
+      <dd>{{ settings }}</dd>
+      {% endif %}
+    </dl>
+  </aside>
+  {% endif %}
+</article>
+
+<nav class="post-nav">
+  <a href="/photos/">← Back to Photos</a>
+</nav>
