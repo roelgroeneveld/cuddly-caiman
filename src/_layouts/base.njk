@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "My Blog & Photo Site" }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+  {% if isPhotoPost %}
+  <link rel="stylesheet" href="/node_modules/photoswipe/dist/photoswipe.css">
+  {% endif %}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">My Site</a>
+      <ul>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/photos/">Photos</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ page.date.getFullYear() or 2026 }} My Blog & Photo Site</p>
+  </footer>
+
+  {% if isPhotoPost %}
+  <script type="module">
+    import PhotoSwipeLightbox from '/node_modules/photoswipe/dist/photoswipe-lightbox.esm.js';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#photo-gallery',
+      children: 'a',
+      pswpModule: () => import('/node_modules/photoswipe/dist/photoswipe.esm.js')
+    });
+    lightbox.init();
+  </script>
+  {% endif %}
+</body>
+</html>

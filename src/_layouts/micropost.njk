@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+
+<article class="micropost">
+  <header class="micropost-header">
+    <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    {% if tags %}
+    <div class="tags">
+      {% for tag in tags %}
+        {% if tag != "microposts" %}
+        <span class="tag">{{ tag }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="micropost-content">
+    {{ content | safe }}
+  </div>
+</article>
+
+<nav class="post-nav">
+  <a href="/blog/">← Back to Blog</a>
+</nav>

@@ -1,0 +1,19 @@
+{
+  "name": "eleventy-blog-photo-site",
+  "version": "1.0.0",
+  "description": "An Eleventy site with blog posts, micro posts, and photo blog",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": ["eleventy", "blog", "photography"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "luxon": "^3.4.4",
+    "photoswipe": "^5.4.3"
+  }
+}
