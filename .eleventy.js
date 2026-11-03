@@ -6,7 +6,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/photos");
-  eleventyConfig.addPassthroughCopy("src/zorgzoeker");
   eleventyConfig.addPassthroughCopy("node_modules/photoswipe/dist/photoswipe.css");
   eleventyConfig.addPassthroughCopy("node_modules/photoswipe/dist/photoswipe-lightbox.esm.js");
   eleventyConfig.addPassthroughCopy("node_modules/photoswipe/dist/photoswipe.esm.js");

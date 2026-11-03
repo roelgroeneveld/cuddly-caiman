@@ -196,13 +196,3 @@ This site generates static HTML and can be deployed to:
 ## License
 
 MIT
-
-## Zorgzoeker-prototype
-
-Klikbaar prototype in `src/zorgzoeker/` (variant E2 + profielpagina D), overgenomen uit het design-canvas.
-
-- `index.html`: startpagina, vragenroute en zoekresultaten (één pagina)
-- `profiel.html`: profielpagina van een zorgverlener
-- `dc-runtime.js`: de runtime van het design-canvas die de pagina's laat werken
-
-Na `npm start` te bekijken op `/zorgzoeker/`. Eleventy kopieert de map ongewijzigd (zie `.eleventyignore`).
